@@ -6,6 +6,9 @@ from typing import List
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
+# Record when the app started
+start_time = time.time()
+
 app = FastAPI(title="Sentiment API - Render Deploy")
 templates = Jinja2Templates(directory="templates")
 
@@ -27,6 +30,19 @@ class SingleInput(BaseModel):
 class BatchInput(BaseModel):
     texts: List[str]
 
+@app.get("/health")
+def health_check():
+    """
+    Quick endpoint to check if the service is awake 
+    without running heavy AI models.
+    """
+    uptime = time.strftime("%H:%M:%S", time.gmtime(time.time() - start_time))
+    return {
+        "status": "healthy",
+        "uptime": uptime,
+        "memory_safety": "optimized"
+    }
+    
 @app.get("/", response_class=HTMLResponse)
 async def serve_home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
