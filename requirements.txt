@@ -1,6 +1,6 @@
 fastapi
 uvicorn
 transformers
-torch==2.2.2+cpu
+torch
 jinja2
 python-multipart
