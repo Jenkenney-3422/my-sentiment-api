@@ -1,0 +1,22 @@
+# Ignore Python cache files
+__pycache__/
+my_local_model*/
+*.pyc
+
+# Ignore OS specific files
+.DS_Store
+Thumbs.db
+
+# Ignore the virtual environment
+.venv/
+venv/
+env/
+.wslvenv/
+
+# Ignore the heavy AI model folders (Render will download its own)
+my_local_model/
+my_local_model2new/
+
+# Ignore OS specific files
+.DS_Store
+Thumbs.db
