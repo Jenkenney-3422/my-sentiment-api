@@ -12,7 +12,7 @@ templates = Jinja2Templates(directory="templates")
 # --- CLOUD CONFIGURATION ---
 # On Render, we don't use local paths or GPUs. 
 # We let Hugging Face manage the cache.
-MODEL_NAME = "distilbert-base-uncased-finetuned-sst-2-english"
+MODEL_NAME = "bhadresh-savani/distilbert-base-uncased-emotion"
 
 print("🧠 Loading model into Cloud Memory (CPU)...")
 classifier = pipeline(
